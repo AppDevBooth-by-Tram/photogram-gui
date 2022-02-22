@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
- def index
+ def home_page
+  redirect_to("/users/")
+ end
+  def index
     @list_of_users = User.all.order({ :username => :asc})
     render({ :template => "user_templates/index.html.erb"})
   end
@@ -25,8 +28,7 @@ class UsersController < ApplicationController
   end
   def update
     @the_user = User.where({:id => params.fetch("modify_id")}).at(0)
-    input_username = params.fetch("input_username")
-    @the_user.username = input_username
+    @the_user.username = params.fetch("input_username")
     @the_user.save
     next_url = "/users/" + @the_user.username
     redirect_to(next_url)
