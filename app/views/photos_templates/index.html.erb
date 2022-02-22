@@ -1,6 +1,6 @@
 <h1>List of photos</h1>
 <table border="1">
-<form action="/insert_photo_record">
+<form action="/insert_photo">
   <label for="browser_input">Image</label>
   <input id="browser_input" type="text" name="input_image" placeholder="Enter a URL for the image...">
 
@@ -26,7 +26,7 @@
  <% @list_of_photos.each do |a_photo| %>
   <tr>
     <td>
-      <img src="<%= a_photo.image %>">
+      <img src="/<%= a_photo.image %>">
     </td>
 
     <td>
@@ -42,7 +42,7 @@
     </td>
 
     <td>
-      <a href="/photos/<% a_photo.id %>">
+      <a href="/photos/<%= a_photo.id %>">
         Show details
       </a>
     </td>
