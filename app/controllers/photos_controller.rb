@@ -13,7 +13,6 @@ class PhotosController < ApplicationController
     matching_photos = Photo.where({ :id => params.fetch("destroy_id")})
     the_photo = matching_photos.at(0)
     the_photo.destroy
-    #render({ :template => "photos_templates/gone.html.erb"})
     redirect_to("/photos")
   end
   

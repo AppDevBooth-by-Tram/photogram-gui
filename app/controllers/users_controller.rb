@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     end 
   end
   def update
-    @the_user = User.where({:id => params.fetch("modify_id")}).at(0)
+    @the_user = User.where({:username => params.fetch("modify_id")}).at(0)
     @the_user.username = params.fetch("input_username")
     @the_user.save
     next_url = "/users/" + @the_user.username
